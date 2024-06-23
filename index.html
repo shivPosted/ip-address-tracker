@@ -1,34 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | IP Address Tracker</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
-
-  IP Address Tracker
-
-  Search for any IP address or domain
-
-  IP Address
-  Location
-  Timezone
-    UTC <!-- add offset value dynamically using the API -->
-  ISP
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Frontend Mentor | IP Address Tracker</title>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="header--label">
+        <h1>IP Address Tracker</h1>
+        <div class="search--element">
+          <input type="text" class="search--input" />
+          <div class="search--btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="11"
+              height="14"
+              class=""
+            >
+              <path
+                fill="none"
+                stroke="#FFF"
+                stroke-width="3"
+                d="M2 1l6 6-6 6"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="map--display--section"></main>
+    <section class="info--overlay">
+      <div class="info--individuals">
+        <h3 class="info--title">IP ADDRESS</h3>
+        <div class="info--details ip--address--display" data-what-info="ip">
+          192.212.174.101
+        </div>
+      </div>
+      <div class="info--individuals">
+        <h3 class="info--title">LOCATION</h3>
+        <div
+          class="info--details ip--location--display"
+          data-what-info="location"
+        >
+          Jaipur, India
+        </div>
+      </div>
+      <div class="info--individuals">
+        <h3 class="info--title">UTC</h3>
+        <div class="info--details ip--UTC--display" data-what-info="timezone">
+          UTC-05:00
+        </div>
+      </div>
+      <div class="info--individuals">
+        <h3 class="info--title">ISP</h3>
+        <div class="info--details ip--ISP--display" data-what-info="isp">
+          Bharti Airtel
+        </div>
+      </div>
+    </section>
+  </body>
 </html>
