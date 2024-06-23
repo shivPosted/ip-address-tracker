@@ -4,7 +4,13 @@ const inputIP = document.querySelector('.search--input');
 const searchBtn = document.querySelector('.search--btn');
 const infoDetails = document.querySelectorAll('.info--details');
 
+const loactionIcon = L.icon({
+  iconUrl: 'images/icon-location.svg',
+});
+
 const diplayIPDetails = function (data) {
+  const lat = data.location.lat;
+  const lng = data.location.lng;
   infoDetails.forEach(node => {
     const dataAtt = node.dataset.whatInfo;
     if (dataAtt === 'location') {
@@ -13,13 +19,22 @@ const diplayIPDetails = function (data) {
     }
     if (dataAtt === 'timezone') {
       console.log(data.location.timezone);
-      node.textContent = `UTC ${data.location.timezone}`;
+      node.textContent = `UTC${data.location.timezone}`;
       console.log(node.textContent);
       return;
     }
-
-    node.textContent = data[dataAtt];
+    data[dataAtt]
+      ? (node.textContent = data[dataAtt])
+      : (node.textContent = 'Not Available');
   });
+  const map = L.map('map').setView([lat, lng], 17);
+
+  L.tileLayer('https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png', {
+    attribution:
+      '&copy; <a href="https://wikimediafoundation.org/wiki/Maps_Terms_of_Use">Wikimedia Maps</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  }).addTo(map);
+
+  L.marker([lat, lng], { icon: loactionIcon }).addTo(map);
 };
 
 const getIP = async function (ip, domain) {
@@ -40,7 +55,7 @@ const getIP = async function (ip, domain) {
   }
 };
 
-// getIP();
+getIP('', '');
 
 searchBtn.addEventListener('click', function (e) {
   isFinite(parseInt(inputIP.value.trim()))

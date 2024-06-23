@@ -62,6 +62,7 @@ h1 {
 .info--overlay {
   position: absolute;
   left: 50%;
+  bottom: 50%;
   width: 70%;
   transform: translate(-50%, -50%);
   border-radius: 9px;
@@ -69,6 +70,7 @@ h1 {
   display: flex;
   background-color: #fff;
   box-shadow: 0 4px 8px 0 #99999966;
+  z-index: 500;
   /* gap: 1.2rem; */
   /* justify-content: space-between; */
 }
@@ -96,4 +98,8 @@ h3 {
   font-weight: 500;
   width: 90%;
   font-size: 1.6rem;
+}
+
+#map {
+  height: 65%;
 }
