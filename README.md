@@ -24,7 +24,6 @@ Users should be able to:
 ### Screenshot
 
 ![](/images/screenshot.png)
-aragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.\*\*
 
 ## My process
 
