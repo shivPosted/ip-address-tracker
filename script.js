@@ -3,7 +3,7 @@
 const inputIP = document.querySelector('.search--input');
 const searchBtn = document.querySelector('.search--btn');
 const infoDetails = document.querySelectorAll('.info--details');
-
+let map;
 const loactionIcon = L.icon({
   iconUrl: 'images/icon-location.svg',
 });
@@ -27,12 +27,19 @@ const diplayIPDetails = function (data) {
       ? (node.textContent = data[dataAtt])
       : (node.textContent = 'Not Available');
   });
-  const map = L.map('map').setView([lat, lng], 17);
 
-  L.tileLayer('https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png', {
-    attribution:
-      '&copy; <a href="https://wikimediafoundation.org/wiki/Maps_Terms_of_Use">Wikimedia Maps</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-  }).addTo(map);
+  if (map) {
+    map.remove();
+  }
+  map = L.map('map').setView([lat, lng], 17);
+
+  L.tileLayer(
+    'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png',
+    {
+      attribution:
+        '&copy; <a href="https://www.carto.com/attributions">CARTO</a>',
+    }
+  ).addTo(map);
 
   L.marker([lat, lng], { icon: loactionIcon }).addTo(map);
 };
